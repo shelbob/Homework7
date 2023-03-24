@@ -9,7 +9,21 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-1. 
+```{r}
+library(classdata)
+library(ggplot2)
+library(tidyverse)
+data(happy, package="productplots")
+head(happy)
+```
+
+Loading extra data into R
+
+```{r}
+HAPPY <- readRDS("data/HAPPY.rds")
+```
+
+
 
 
 
