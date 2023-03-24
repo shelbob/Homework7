@@ -24,15 +24,20 @@ HAPPY <- readRDS("data/HAPPY.rds")
 ```
 
 
+1.Data cleaning: the values “IAP”, “DK” and “NA” all encode missing values. Replace all of these instances by the value NA. Show with bar/histogram
 
 
-
-2. 
-
-
-3. 
+2. Check the type of the variable and cast into the right type (factor variable for categorical variables). For age, change “89 OR OLDER” to 89 and assume the variable should be numeric.Show with bar/histogram
 
 
-4. 
+3. Bring all levels of factors into a sensible order. For marital you could e.g. order the levels according to average age. Show with bar/histogram
 
-5. 
+4.Investigate the relationship between happiness and two other variables in the data. Find a visualization that captures the relationship and write a paragraph to describe it.
+
+Each member should study a different question (choose different variables to investigate).
+
+Upload your answers and the dataset to the repository. Discuss and refine answers as a team.
+
+Shelby-
+Seana-
+Greg-
