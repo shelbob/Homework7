@@ -20,12 +20,54 @@ head(happy)
 Loading extra data into R
 
 ```{r}
-HAPPY <- readRDS("data/HAPPY.rds")
+HAPPY <- readRDS("HAPPY.rds")
 ```
 
 
 1.Data cleaning: the values “IAP”, “DK” and “NA” all encode missing values. Replace all of these instances by the value NA. Show with bar/histogram
 
+```{r, error=TRUE}
+str(HAPPY)
+HAPPY <- replace(HAPPY, HAPPY == "IAP", NA)
+HAPPY <- replace(HAPPY, HAPPY == "DK", NA)
+HAPPY <- replace(HAPPY, HAPPY == "NA", NA)
+HAPPY <- replace(HAPPY, SEX == "IAP", NA)
+HAPPY <- replace(HAPPY, SEX == "DK", NA)
+HAPPY <- replace(HAPPY, SEX == "NA", NA)
+HAPPY <- replace(HAPPY, MARITAL == "IAP", NA)
+HAPPY <- replace(HAPPY, MARITAL == "DK", NA)
+HAPPY <- replace(HAPPY, MARITAL == "NA", NA)
+HAPPY <- replace(HAPPY, DEGREE == "IAP", NA)
+HAPPY <- replace(HAPPY, DEGREE == "DK", NA)
+HAPPY <- replace(HAPPY, DEGREE == "NA", NA)
+HAPPY <- replace(HAPPY, FINRELA == "IAP", NA)
+HAPPY <- replace(HAPPY, FINRELA == "DK", NA)
+HAPPY <- replace(HAPPY, FINRELA == "NA", NA)
+HAPPY <- replace(HAPPY, HEALTH == "IAP", NA)
+HAPPY <- replace(HAPPY, HEALTH == "DK", NA)
+HAPPY <- replace(HAPPY, HEALTH == "NA", NA)
+HAPPY <- replace(HAPPY, PARTYID == "IAP", NA)
+HAPPY <- replace(HAPPY, PARTYID == "DK", NA)
+HAPPY <- replace(HAPPY, PARTYID == "NA", NA)
+HAPPY <- replace(HAPPY, POLVIEWS == "IAP", NA)
+HAPPY <- replace(HAPPY, POLVIEWS == "DK", NA)
+HAPPY <- replace(HAPPY, POLVIEWS == "NA", NA)
+
+str(HAPPY)
+```
+
+```{r}
+ggplot(HAPPY, aes(x = HAPPY)) + geom_bar()
+ggplot(HAPPY, aes(x = SEX)) + geom_bar()
+ggplot(HAPPY, aes(x = MARITAL)) + geom_bar()
+ggplot(HAPPY, aes(x = DEGREE)) + geom_bar()
+ggplot(HAPPY, aes(x = FINRELA)) + geom_bar()
+ggplot(HAPPY, aes(x = HEALTH)) + geom_bar()
+ggplot(HAPPY, aes(x = PARTYID)) + geom_bar()
+ggplot(HAPPY, aes(x = POLVIEWS)) + geom_bar()
+
+
+```
 
 2. Check the type of the variable and cast into the right type (factor variable for categorical variables). For age, change “89 OR OLDER” to 89 and assume the variable should be numeric.Show with bar/histogram
 
