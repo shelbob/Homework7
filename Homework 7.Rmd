@@ -20,8 +20,8 @@ head(happy)
 Loading extra data into R
 
 ```{r}
-happy.new <- readRDS("data/HAPPY.rds")
-str(happy.new)
+HAPPY <- readRDS("data/HAPPY.rds")
+str(HAPPY)
 ```
 
 
@@ -29,59 +29,58 @@ str(happy.new)
 
 ```{r, error=TRUE}
 str(HAPPY)
-happy.new <- replace(happy.new, HAPPY == "IAP", NA)
-happy.new <- replace(happy.new, HAPPY == "DK", NA)
-happy.new <- replace(happy.new, HAPPY == "NA", NA)
-happy.new <- replace(happy.new, SEX == "IAP", NA)
-happy.new <- replace(happy.new, SEX == "DK", NA)
-happy.new <- replace(happy.new, SEX == "NA", NA)
-happy.new <- replace(happy.new, MARITAL == "IAP", NA)
-happy.new <- replace(happy.new, MARITAL == "DK", NA)
-happy.new <- replace(happy.new, MARITAL == "NA", NA)
-happy.new <- replace(happy.new, DEGREE == "IAP", NA)
-happy.new <- replace(happy.new, DEGREE == "DK", NA)
-happy.new <- replace(happy.new, DEGREE == "NA", NA)
-happy.new <- replace(happy.new, FINRELA == "IAP", NA)
-happy.new <- replace(happy.new, FINRELA == "DK", NA)
-happy.new <- replace(happy.new, FINRELA == "NA", NA)
-happy.new <- replace(happy.new, HEALTH == "IAP", NA)
-happy.new <- replace(happy.new, HEALTH == "DK", NA)
-happy.new <- replace(happy.new, HEALTH == "NA", NA)
-happy.new <- replace(happy.new, PARTYID == "IAP", NA)
-happy.new <- replace(happy.new, PARTYID == "DK", NA)
-happy.new <- replace(happy.new, PARTYID == "NA", NA)
-happy.new <- replace(happy.new, POLVIEWS == "IAP", NA)
-happy.new <- replace(happy.new, POLVIEWS == "DK", NA)
-happy.new <- replace(happy.new, POLVIEWS == "NA", NA)
+HAPPY <- replace(HAPPY, HAPPY == "IAP", NA)
+HAPPY <- replace(HAPPY, HAPPY == "DK", NA)
+HAPPY <- replace(HAPPY, HAPPY == "NA", NA)
+HAPPY <- replace(HAPPY, SEX == "IAP", NA)
+HAPPY <- replace(HAPPY, SEX == "DK", NA)
+HAPPY <- replace(HAPPY, SEX == "NA", NA)
+HAPPY <- replace(HAPPY, MARITAL == "IAP", NA)
+HAPPY <- replace(HAPPY, MARITAL == "DK", NA)
+HAPPY <- replace(HAPPY, MARITAL == "NA", NA)
+HAPPY <- replace(HAPPY, DEGREE == "IAP", NA)
+HAPPY <- replace(HAPPY, DEGREE == "DK", NA)
+HAPPY <- replace(HAPPY, DEGREE == "NA", NA)
+HAPPY <- replace(HAPPY, FINRELA == "IAP", NA)
+HAPPY <- replace(HAPPY, FINRELA == "DK", NA)
+HAPPY <- replace(HAPPY, FINRELA == "NA", NA)
+HAPPY <- replace(HAPPY, HEALTH == "IAP", NA)
+HAPPY <- replace(HAPPY, HEALTH == "DK", NA)
+HAPPY <- replace(HAPPY, HEALTH == "NA", NA)
+HAPPY <- replace(HAPPY, PARTYID == "IAP", NA)
+HAPPY <- replace(HAPPY, PARTYID == "DK", NA)
+HAPPY <- replace(HAPPY, PARTYID == "NA", NA)
+HAPPY <- replace(HAPPY, POLVIEWS == "IAP", NA)
+HAPPY <- replace(HAPPY, POLVIEWS == "DK", NA)
+HAPPY <- replace(HAPPY, POLVIEWS == "NA", NA)
 
-str(happy.new)
+str(HAPPY)
 ```
 
 ```{r}
-ggplot(happy.new, aes(x = HAPPY)) + geom_bar()
-ggplot(happy.new, aes(x = SEX)) + geom_bar()
-ggplot(happy.new, aes(x = MARITAL)) + geom_bar()
-ggplot(happy.new, aes(x = DEGREE)) + geom_bar()
-ggplot(happy.new, aes(x = FINRELA)) + geom_bar()
-ggplot(happy.new, aes(x = HEALTH)) + geom_bar()
-ggplot(happy.new, aes(x = PARTYID)) + geom_bar()
-ggplot(happy.new, aes(x = POLVIEWS)) + geom_bar()
+ggplot(HAPPY, aes(x = HAPPY)) + geom_bar()
+ggplot(HAPPY, aes(x = SEX)) + geom_bar()
+ggplot(HAPPY, aes(x = MARITAL)) + geom_bar()
+ggplot(HAPPY, aes(x = DEGREE)) + geom_bar()
+ggplot(HAPPY, aes(x = FINRELA)) + geom_bar()
+ggplot(HAPPY, aes(x = HEALTH)) + geom_bar()
+ggplot(HAPPY, aes(x = PARTYID)) + geom_bar()
+ggplot(HAPPY, aes(x = POLVIEWS)) + geom_bar()
 
 
 ```
 
 2. Check the type of the variable and cast into the right type (factor variable for categorical variables). For age, change “89 OR OLDER” to 89 and assume the variable should be numeric.Show with bar/histogram
 ```{r}
-happy.new$HAPPY  <- as.factor(happy.new$HAPPY)
-happy.new$SEX    <- as.factor(happy.new$SEX)
-happy.new$AGE    <- as.numeric(replace(happy.new$AGE, happy.new$AGE == "89 OR OLDER", 89))
-  happy.new$AGE  <- as.factor(happy.new$AGE)
-happy.new$MARITAL<- as.factor(happy.new$MARITAL)
-happy.new$DEGREE <- as.factor(happy.new$DEGREE)
-happy.new$FINRELA<- as.factor(happy.new$FINRELA)
-happy.new$HEALTH <- as.factor(happy.new$HEALTH)
-happy.new$PARTYID<- as.factor(happy.new$PARTYID)
-happy.new$POLVIEWS<- as.factor(happy.new$POLVIEWS)
+HAPPY$HAPPY  <- as.factor(HAPPY$HAPPY)
+HAPPY$SEX    <- as.factor(HAPPY$SEX)
+HAPPY$AGE.num    <- as.numeric(replace(HAPPY$AGE, HAPPY$AGE == "89 OR OLDER", 89))
+HAPPY$MARITAL<- as.factor(HAPPY$MARITAL)
+HAPPY$DEGREE <- as.factor(HAPPY$DEGREE)
+HAPPY$FINRELA<- as.factor(HAPPY$FINRELA)
+HAPPY$HEALTH <- as.factor(HAPPY$HEALTH)
+HAPPY$PARTYID<- as.factor(HAPPY$PARTYID)
+HAPPY$POLVIEWS<- as.factor(HAPPY$POLVIEWS)
 ```
 
 
@@ -89,32 +88,32 @@ happy.new$POLVIEWS<- as.factor(happy.new$POLVIEWS)
 
 ```{r}
 
-happy.new <- happy.new %>%
+HAPPY <- HAPPY %>%
   mutate(DEGREE=fct_relevel(DEGREE, "LT HIGH SCHOOL", "HIGH SCHOOL", "JUNIOR COLLEGE", "BACHELOR", "GRADUATE", "NA's"))
 
-happy.new <- happy.new %>%
+HAPPY <- HAPPY %>%
   mutate(MARITAL=fct_relevel(MARITAL, "MARRIED", "NEVER MARRIED", "SEPARATED", "DIVORCED", "WIDOWED", "NA's"))
 
-happy.new <- happy.new %>%
+HAPPY <- HAPPY %>%
   mutate(FINRELA=fct_relevel(FINRELA, "FAR BELOW AVERAGE", "BELOW AVERAGE", "AVERAGE", "ABOVE AVERAGE", "FAR ABOVE AVERAGE", "NA's"))
 
-happy.new <- happy.new %>%
+HAPPY <- HAPPY %>%
   mutate(HEALTH=fct_relevel(HEALTH, "POOR", "FAIR", "GOOD", "EXCELLENT", "NA's"))
 
-happy.new <- happy.new %>%
+HAPPY <- HAPPY %>%
   mutate(PARTYID=fct_relevel(PARTYID, "STRONG REPUBLICAN", "NOT STR REPUBLICAN", "IND,NEAR REP", "INDEPENDENT", "IND,NEAR DEM", "NOT STR DEMOCRAT", "STRONG DEMOCRAT", "OTHER PARTY", "NA's"))
 
-happy.new <- happy.new %>%
+HAPPY <- HAPPY %>%
   mutate(POLVIEWS=fct_relevel(POLVIEWS, "EXTRMLY CONSERVATIVE", "CONSERVATIVE", "SLGHTLY CONSERVATIVE", "MODERATE", "SLIGHTLY LIBERAL", "LIBERAL", "EXTREMELY LIBERAL", "NA's"))
 
-ggplot(happy.new, aes(x = HAPPY)) + geom_bar()
-ggplot(happy.new, aes(x = SEX)) + geom_bar()
-ggplot(happy.new, aes(x = MARITAL)) + geom_bar()
-ggplot(happy.new, aes(x = DEGREE)) + geom_bar()
-ggplot(happy.new, aes(x = FINRELA)) + geom_bar()
-ggplot(happy.new, aes(x = HEALTH)) + geom_bar()
-ggplot(happy.new, aes(x = PARTYID)) + geom_bar()
-ggplot(happy.new, aes(x = POLVIEWS)) + geom_bar()
+ggplot(HAPPY, aes(x = HAPPY)) + geom_bar()
+ggplot(HAPPY, aes(x = SEX)) + geom_bar()
+ggplot(HAPPY, aes(x = MARITAL)) + geom_bar()
+ggplot(HAPPY, aes(x = DEGREE)) + geom_bar()
+ggplot(HAPPY, aes(x = FINRELA)) + geom_bar()
+ggplot(HAPPY, aes(x = HEALTH)) + geom_bar()
+ggplot(HAPPY, aes(x = PARTYID)) + geom_bar()
+ggplot(HAPPY, aes(x = POLVIEWS)) + geom_bar()
 
 ```
 
@@ -126,4 +125,8 @@ Upload your answers and the dataset to the repository. Discuss and refine answer
 
 Shelby-
 Seana-
-Greg-
+Greg- HAPPY, AGE, DEGREE
+```{r}
+HAPPY %>% ggplot(aes(x=HAPPY, weight=AGE.num, fill=DEGREE)) + geom_bar()
+```
+  
