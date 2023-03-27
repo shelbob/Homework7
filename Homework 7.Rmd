@@ -124,7 +124,30 @@ Each member should study a different question (choose different variables to inv
 Upload your answers and the dataset to the repository. Discuss and refine answers as a team.
 
 Shelby-
-Seana-
+Seana-What is the relationship between happiness and political views? Happiness and Degree?
+For political views, happiness appears to be slightly higher in extremely conservative people, and is about even between males and females. Happiness appears to be lowest in extremely liberal people and is slightly lower in males than females for that level. Happiness is highest in those with graduate degrees and is slightly higher in females
+
+```{r}
+
+HAPPY$m.happy <- as.numeric(HAPPY$HAPPY, na.rm=TRUE)
+
+ggplot(HAPPY, aes(x = m.happy, fill = POLVIEWS)) + geom_bar()
+
+ggplot(HAPPY, aes(x = m.happy, fill = DEGREE)) + geom_bar()
+
+
+
+HAPPY %>%
+  ggplot(aes(fill = SEX, y=m.happy, x=POLVIEWS)) +
+  geom_bar(position="dodge", stat="summary") + 
+  ylim(0,5)
+
+HAPPY %>%
+  ggplot(aes(fill = SEX, y=m.happy, x=DEGREE)) +
+  geom_bar(position="dodge", stat="summary") + 
+  ylim(0,5)
+```
+
 Greg- HAPPY, AGE, DEGREE
 ```{r}
 HAPPY %>% ggplot(aes(x=HAPPY, weight=AGE.num, fill=DEGREE)) + geom_bar()
